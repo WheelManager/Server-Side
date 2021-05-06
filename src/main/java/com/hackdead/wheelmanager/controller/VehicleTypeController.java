@@ -1,6 +1,5 @@
 package com.hackdead.wheelmanager.controller;
 
-import com.hackdead.wheelmanager.entities.Brand;
 import com.hackdead.wheelmanager.entities.VehicleType;
 import com.hackdead.wheelmanager.service.IVehicleTypeService;
 import io.swagger.annotations.*;
