@@ -15,30 +15,32 @@ import java.util.Optional;
 public class VehicleTypeServiceImpl implements IVehicleTypeService {
 
     @Autowired
-    private IVehicleTypeRepository VehicleTypeRepository;
+    private IVehicleTypeRepository vehicleTypeRepository;
 
     @Override
     @Transactional
     public VehicleType save(VehicleType vehicleType) throws Exception {
-        return VehicleTypeRepository.save(vehicleType);
+        return vehicleTypeRepository.save(vehicleType);
     }
 
     @Override
     @Transactional
     public void delete(Long id) throws Exception {
-        VehicleTypeRepository.deleteById(id);
+        vehicleTypeRepository.deleteById(id);
     }
 
     @Override
     public List<VehicleType> getAll() throws Exception {
-        return VehicleTypeRepository.findAll();
+        return vehicleTypeRepository.findAll();
     }
+
     @Override
     public Optional<VehicleType> getById(Long id) throws Exception {
-        return VehicleTypeRepository.findById(id);
+        return vehicleTypeRepository.findById(id);
     }
+
     @Override
     public List<VehicleType> findByName(String name) throws Exception {
-        return VehicleTypeRepository.findByName(name);
+        return vehicleTypeRepository.findByName(name);
     }
 }
