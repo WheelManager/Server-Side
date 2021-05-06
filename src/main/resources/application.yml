@@ -2,7 +2,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/WheelManager
     username: postgres
-    password: 1234
+    password: Rushia
     driver-class-name: org.postgresql.Driver
   jpa:
     database: postgresql
