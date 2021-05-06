@@ -6,10 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
-@Table(name="vehicle_type")
+@Table(name="vehicle_types")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

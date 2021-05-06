@@ -1,12 +1,9 @@
 package com.hackdead.wheelmanager.controller;
 
+import com.hackdead.wheelmanager.entities.Brand;
 import com.hackdead.wheelmanager.entities.VehicleType;
 import com.hackdead.wheelmanager.service.IVehicleTypeService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
-import io.swagger.models.Response;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -14,13 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.awt.*;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/vehicletype")
-@Api(tags="vehicles", value = "Service Web RESTful de Vehicle Types")
+@RequestMapping("/api/vehicletypes")
+@Api(tags="VehicleTypes", value = "Service Web RESTful of Vehicle Types")
 public class VehicleTypeController {
     @Autowired
     private IVehicleTypeService vehicleTypeService;
@@ -28,33 +24,33 @@ public class VehicleTypeController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value="List Vehicle Types", notes = "Method to list all vehicle types")
     @ApiResponses({
-            @ApiResponse(code=200, message = "Vehicle Type found"),
+            @ApiResponse(code=200, message = "Vehicle Types found"),
             @ApiResponse(code=404, message = "Vehicle Types not found")
     })
     public ResponseEntity<List<VehicleType>> findAll() {
         try {
             List<VehicleType> vehicleTypes = vehicleTypeService.getAll();
-            if (vehicleTypes.size() > 0)
-                return new ResponseEntity<List<vehicleTypes>>(HttpStatus.OK);
+            if(vehicleTypes.size()>0)
+                return new ResponseEntity<List<VehicleType>>(vehicleTypes, HttpStatus.OK);
             else
-                return new ResponseEntity<List<vehicleTypes>>(HttpStatus.NOT_FOUND);
-        } catch (Exception ex) {
-            return new ResponseEntity<List<vehicleTypes>>(HttpStatus.INTERNAL_SERVER_ERROR);
+                return new ResponseEntity<List<VehicleType>>(HttpStatus.NOT_FOUND);
+        }catch (Exception ex){
+            return new ResponseEntity<List<VehicleType>>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @ApiOperation(value = "Seach vehicle by Id", notes = "Method to find a vehicle by Id")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ApiOperation(value = "Seach Vehicle by Id", notes = "Method to find a vehicle by Id")
     @ApiResponses({
             @ApiResponse(code=201, message = "Vehicle found"),
             @ApiResponse(code=404, message = "Vehicle not found")
     })
-
     public ResponseEntity<VehicleType> findById(@PathVariable("id") Long id){
         try{
             Optional<VehicleType> vehicleType = vehicleTypeService.getById(id);
             if(!vehicleType.isPresent())
                 return new ResponseEntity<VehicleType>(HttpStatus.NOT_FOUND);
-            return new ResponseEntity<VehicleType>(vehicleType)(vehicleType.get(), HttpStatus.OK);
+            return new ResponseEntity<VehicleType>(vehicleType.get(), HttpStatus.OK);
         }catch(Exception e){
             return new ResponseEntity<VehicleType>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -66,7 +62,7 @@ public class VehicleTypeController {
             @ApiResponse(code=201, message = "Vehicle found"),
             @ApiResponse(code=404, message = "Vehicle not found"),
     })
-    public ResponseEntity<List<VehicleType>> findByName(@PathVariable("Name") String name){
+    public ResponseEntity<List<VehicleType>> findByName(@PathVariable("name") String name){
         try{
             List<VehicleType> vehicleTypes = vehicleTypeService.findByName(name);
             if(vehicleTypes.size()>0)
@@ -92,8 +88,9 @@ public class VehicleTypeController {
             return new ResponseEntity<VehicleType>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
     @PutMapping(value="/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
-    produces = MediaType.APPLICATION_JSON_VALUE)
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value="Update Vehicles data", notes = "Method to update Vehicles")
     @ApiResponses({
             @ApiResponse(code=200, message = "Vehicle updated"),
@@ -101,17 +98,18 @@ public class VehicleTypeController {
     })
     public ResponseEntity<VehicleType> updateVehicle(
             @PathVariable("id") Long id, @Valid @RequestBody VehicleType vehicleType){
-                try {
-                Optional<VehicleType> vehicleUp = vehicleTypeService.getById(id);
-                if(!vehicleUp.isPresent())
-                    return new ResponseEntity<VehicleType>(HttpStatus.NOT_FOUND);
-                    vehicleType.setId(id);
-                    vehicleTypeService.save(vehicleType);
-                    return new ResponseEntity<VehicleType>(vehicleType, HttpStatus.OK);
-                }catch(Exception e){
-                    return new ResponseEntity<VehicleType>(HttpStatus.INTERNAL_SERVER_ERROR);
-                }
+        try {
+            Optional<VehicleType> vehicleUp = vehicleTypeService.getById(id);
+            if(!vehicleUp.isPresent())
+                return new ResponseEntity<VehicleType>(HttpStatus.NOT_FOUND);
+            vehicleType.setId(id);
+            vehicleTypeService.save(vehicleType);
+            return new ResponseEntity<VehicleType>(vehicleType, HttpStatus.OK);
+        }catch(Exception e){
+            return new ResponseEntity<VehicleType>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
+
     @DeleteMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value="Delete Vehicle", notes = "Method to delete Vehicle")
     @ApiResponses({
@@ -122,7 +120,7 @@ public class VehicleTypeController {
         try{
             Optional<VehicleType> deleteVehicle = vehicleTypeService.getById(id);
             if(!deleteVehicle.isPresent())
-                    return new ResponseEntity<VehicleType>(HttpStatus.NOT_FOUND);
+                return new ResponseEntity<VehicleType>(HttpStatus.NOT_FOUND);
             vehicleTypeService.delete(id);
             return new ResponseEntity<VehicleType>(HttpStatus.OK);
         }catch (Exception e){
