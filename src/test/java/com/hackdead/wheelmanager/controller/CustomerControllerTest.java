@@ -33,10 +33,10 @@ public class CustomerControllerTest {
     @BeforeEach
     void setUp(){
         customerList=new ArrayList<>();
-         customerList.add(new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date()));
-        customerList.add(new Customer(2L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date()));
-        customerList.add(new Customer(3L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date()));
-        customerList.add(new Customer(4L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date()));
+         customerList.add(new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date()));
+        customerList.add(new Customer(2L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date()));
+        customerList.add(new Customer(3L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date()));
+        customerList.add(new Customer(4L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date()));
     }
 
     @Test
@@ -48,7 +48,7 @@ public class CustomerControllerTest {
     @Test
     void findCustomerById() throws Exception {
         Long CustomerId = 1L;
-        Customer customer = new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date());
+        Customer customer = new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date());
 
         given(customerService.getById(CustomerId)).willReturn(Optional.of(customer));
 

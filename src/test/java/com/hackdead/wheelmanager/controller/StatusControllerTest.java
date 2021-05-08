@@ -33,8 +33,8 @@ public class StatusControllerTest {
     @BeforeEach
     void setUp() {
         statusList = new ArrayList<>();
-        statusList.add(new Status(1L, "Ocupado"));
-        statusList.add(new Status(1L, "Libre"));
+        statusList.add(new Status(1L, "Occupied"));
+        statusList.add(new Status(2L, "Free"));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class StatusControllerTest {
     @Test
     void findStatusById() throws Exception {
         Long StatudId = 1L;
-        Status status = new Status(1L, "Ocupado");
+        Status status = new Status(1L, "Occupied");
 
         given(statusService.getById(StatudId)).willReturn(Optional.of(status));
 

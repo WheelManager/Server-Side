@@ -9,11 +9,16 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
@@ -46,5 +51,25 @@ public class BrandServiceImplTest {
 
         Optional<Brand> expected = brandService.getById(id);
         assertThat(expected).isNotNull();
+    }
+
+    @Test
+    void findAllTest() throws Exception {
+        List<Brand> brandList = new ArrayList<>();
+        brandList.add(new Brand(1L, "Gzuk"));
+        brandList.add(new Brand(2L, "Monark"));
+        brandList.add(new Brand(3L, "Mark"));
+        brandList.add(new Brand(4L, "BMX"));
+
+        given(brandRepository.findAll()).willReturn(brandList);
+        List<Brand> expected = brandService.getAll();
+        assertEquals(expected, brandList);
+    }
+
+    @Test
+    void deleteTest() throws Exception {
+        Long id = 1L;
+        brandService.delete(id);
+        verify(brandRepository, times(1)).deleteById(id);
     }
 }

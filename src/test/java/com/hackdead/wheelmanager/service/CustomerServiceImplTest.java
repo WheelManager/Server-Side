@@ -30,7 +30,7 @@ public class CustomerServiceImplTest {
 
     @Test
     public void saveTest(){
-        Customer customer = new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date());
+        Customer customer = new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date());
 
         given(customerRepository.save(customer)).willReturn(customer);
 
@@ -45,7 +45,7 @@ public class CustomerServiceImplTest {
     @Test
     void findByIdTest() throws Exception {
         Long id = 1L;
-        Customer customer = new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date());
+        Customer customer = new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date());
 
         given(customerRepository.findById(id)).willReturn(Optional.of(customer));
 
@@ -56,10 +56,10 @@ public class CustomerServiceImplTest {
     @Test
     void findAllTest() throws Exception {
         List<Customer> customerList = new ArrayList<>();
-        customerList.add(new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date()));
-        customerList.add(new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date()));
-        customerList.add(new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date()));
-        customerList.add(new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Masculino", new Date()));
+        customerList.add(new Customer(1L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date()));
+        customerList.add(new Customer(2L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date()));
+        customerList.add(new Customer(3L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date()));
+        customerList.add(new Customer(4L, "Juan", "asdf", "jose@gmail.com", "Jose", "Carlos", "url_image.com", "12345678", "Male", new Date()));
 
         given(customerRepository.findAll()).willReturn(customerList);
         List<Customer> expected = customerService.getAll();
