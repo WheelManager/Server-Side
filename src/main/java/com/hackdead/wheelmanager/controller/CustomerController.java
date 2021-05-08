@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/customers")
-@Api(tags = "Customers",value = "Service Web RESTFul de customers")
+@Api(tags = "Customer",value = "Service Web RESTFul de customers")
 public class CustomerController {
     @Autowired
     private ICustomerService customerService;
