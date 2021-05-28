@@ -11,18 +11,19 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional(readOnly=true)
+@Transactional(readOnly = true)
 public class CustomerServiceImpl implements ICustomerService {
     @Autowired
     private ICustomerRepository customerRepository;
 
     @Override
     @Transactional
-    public Customer save(Customer customer) throws Exception{
+    public Customer save(Customer customer) throws Exception {
         return customerRepository.save(customer);
     }
 
     @Override
+    @Transactional
     public void delete(Long id) throws Exception {
         customerRepository.deleteById(id);
     }

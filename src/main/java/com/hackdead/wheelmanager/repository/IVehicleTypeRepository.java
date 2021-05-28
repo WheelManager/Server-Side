@@ -8,5 +8,5 @@ import java.util.List;
 
 @Repository
 public interface IVehicleTypeRepository extends JpaRepository<VehicleType, Long> {
-    public List<VehicleType> findByName(String name);
+    List<VehicleType> findByTypeName(String typeName);
 }

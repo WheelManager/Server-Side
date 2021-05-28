@@ -1,15 +1,18 @@
 package com.hackdead.wheelmanager.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name="offers")
+@Table(name = "offers")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,18 +20,27 @@ public class Offer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="name",nullable = false,length = 50)
-    private String name;
-    @Column(name="description",nullable = false)
+
+    @Column(name = "offer_name", nullable = false, length = 50)
+    private String offerName;
+
+    @Lob
+    @Column(name = "description", nullable = false)
     private String description;
-    @Column(name="image_url",nullable = false)
+
+    @Lob
+    @Type(type = "text")
+    @Column(name = "image_url", nullable = false)
     private String imageUrl;
+
     @Temporal(TemporalType.DATE)
-    @Column(name="start_date", nullable = false)
+    @Column(name = "start_date", nullable = false)
     private Date startDate;
+
     @Temporal(TemporalType.DATE)
-    @Column(name="end_date", nullable = false)
+    @Column(name = "end_date", nullable = false)
     private Date endDate;
-    @Column(name="offer_price", nullable = false)
+
+    @Column(name = "offer_price", nullable = false)
     private Double offerPrice;
 }

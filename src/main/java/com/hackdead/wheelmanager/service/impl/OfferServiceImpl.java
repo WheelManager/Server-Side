@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-@Transactional(readOnly=true)
+@Transactional(readOnly = true)
 public class OfferServiceImpl implements IOfferService {
 
     @Autowired
@@ -40,7 +40,7 @@ public class OfferServiceImpl implements IOfferService {
     }
 
     @Override
-    public List<Offer> findByName(String name) throws Exception {
-        return offerRepository.findByName(name);
+    public List<Offer> findByOfferName(String offerName) throws Exception {
+        return offerRepository.findByOfferName(offerName);
     }
 }

@@ -4,6 +4,6 @@ import com.hackdead.wheelmanager.entities.VehicleType;
 
 import java.util.List;
 
-public interface IVehicleTypeService extends CrudService<VehicleType>{
-    public List<VehicleType> findByName(String name) throws Exception;
+public interface IVehicleTypeService extends CrudService<VehicleType> {
+    List<VehicleType> findByTypeName(String typeName) throws Exception;
 }

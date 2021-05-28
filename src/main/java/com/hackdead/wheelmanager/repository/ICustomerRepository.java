@@ -7,8 +7,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ICustomerRepository extends JpaRepository<Customer,Long> {
-    public List<Customer> findByUsername(String username);
-    public List<Customer> findByName(String name);
-    public Customer findByDni(String dni);
+public interface ICustomerRepository extends JpaRepository<Customer, Long> {
+    List<Customer> findByUsername(String username);
+
+    List<Customer> findByName(String name);
+
+    Customer findByDni(String dni);
 }
