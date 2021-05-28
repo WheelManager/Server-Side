@@ -4,6 +4,6 @@ import com.hackdead.wheelmanager.entities.Status;
 
 import java.util.List;
 
-public interface IStatusService extends CrudService<Status>{
-    public List<Status> findByName(String name) throws Exception;
+public interface IStatusService extends CrudService<Status> {
+    List<Status> findByStatusName(String statusName) throws Exception;
 }

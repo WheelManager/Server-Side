@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IAddressRepository extends JpaRepository<Address,Long> {
-    public List<Address> findByLongitudeAndLatitude(Double longitude, Double latitude);
+public interface IAddressRepository extends JpaRepository<Address, Long> {
+    List<Address> findByLongitudeAndLatitude(Double longitude, Double latitude);
 }

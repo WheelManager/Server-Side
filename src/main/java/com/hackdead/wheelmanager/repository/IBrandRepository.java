@@ -8,6 +8,6 @@ import java.util.List;
 
 
 @Repository
-public interface IBrandRepository extends JpaRepository<Brand,Long> {
-    public List<Brand> findByName(String name);
+public interface IBrandRepository extends JpaRepository<Brand, Long> {
+    List<Brand> findByBrandName(String brandName);
 }

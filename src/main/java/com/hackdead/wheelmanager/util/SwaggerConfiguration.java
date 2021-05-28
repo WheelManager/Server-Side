@@ -10,8 +10,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-public class SwaggerConfiguration{
-    public Docket Documentation(){
+public class SwaggerConfiguration {
+    public Docket Documentation() {
         return new Docket(DocumentationType.SWAGGER_2).select()
                 .apis(RequestHandlerSelectors.withClassAnnotation(RestController.class))
                 .paths(PathSelectors.any()).build();

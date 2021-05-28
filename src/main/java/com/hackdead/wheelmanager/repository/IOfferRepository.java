@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IOfferRepository extends JpaRepository<Offer,Long> {
-    public List<Offer> findByName(String name);
+public interface IOfferRepository extends JpaRepository<Offer, Long> {
+    List<Offer> findByOfferName(String offerName);
 }
