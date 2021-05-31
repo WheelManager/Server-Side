@@ -4,34 +4,23 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "offers")
+@Table(name = "reservations")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Offer implements Serializable {
+public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "offer_name", nullable = false, length = 50)
-    private String offerName;
-
-    @Lob
-    @Column(name = "description", nullable = false)
-    private String description;
-
-    @Lob
-    @Type(type = "text")
-    @Column(name = "image_url", nullable = false)
-    private String imageUrl;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "start_date", nullable = false)
@@ -41,6 +30,16 @@ public class Offer implements Serializable {
     @Column(name = "end_date", nullable = false)
     private Date endDate;
 
-    @Column(name = "offer_price", nullable = false)
-    private Double offerPrice;
+    @Column(name = "reservation_price", nullable = false)
+    private Double reservationPrice;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "customer_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Customer customer;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "vehicle_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Vehicle vehicle;
 }
