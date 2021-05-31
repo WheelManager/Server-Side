@@ -18,7 +18,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/comments")
+@RequestMapping("/api/userAddress")
 @Api(tags = "userAddresses", value = "Service Web RESTFul of userAddresses")
 public class UserAddressController {
     @Autowired

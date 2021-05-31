@@ -11,12 +11,11 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "rental activities")
+@Table(name = "rental_activities")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class RentalActivity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
