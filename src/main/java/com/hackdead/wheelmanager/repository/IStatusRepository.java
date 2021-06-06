@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface IStatusRepository extends JpaRepository<Status,Long> {
-    public List<Status> findByName(String name);
+public interface IStatusRepository extends JpaRepository<Status, Long> {
+    List<Status> findByStatusName(String statusName);
 }
