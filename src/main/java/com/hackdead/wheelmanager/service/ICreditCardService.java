@@ -4,6 +4,6 @@ import com.hackdead.wheelmanager.entities.CreditCard;
 
 import java.util.List;
 
-public interface ICreditCardService extends CrudService<CreditCard>{
-    List<CreditCard> findById(String id) throws Exception;
+public interface ICreditCardService extends CrudService<CreditCard> {
+    List<CreditCard> findCreditCardsByCardNumber(String cardNumber);
 }

@@ -19,7 +19,7 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/vehicletypes")
-@Api(tags = "VehicleTypes", value = "Service Web RESTful of Vehicle Types")
+@Api(tags = "Vehicle Types", value = "Service Web RESTful of Vehicle Types")
 public class VehicleTypeController {
     @Autowired
     private IVehicleTypeService vehicleTypeService;
