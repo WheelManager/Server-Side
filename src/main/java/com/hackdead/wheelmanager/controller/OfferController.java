@@ -77,7 +77,7 @@ public class OfferController {
         }
     }
 
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Registration of Offers", notes = "Method to register Offers in the BD")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Offer found"),

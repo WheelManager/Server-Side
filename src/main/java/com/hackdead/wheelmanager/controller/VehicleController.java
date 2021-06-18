@@ -77,7 +77,7 @@ public class VehicleController {
         }
     }
 
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Registration of Vehicles", notes = "Method to register Vehicles in the BD")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Vehicle found"),

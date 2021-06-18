@@ -77,7 +77,7 @@ public class AddressController {
         }
     }
 
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Registration of Addresses", notes = "Method to register Addresses in the BD")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Address found"),

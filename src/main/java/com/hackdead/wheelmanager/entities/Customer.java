@@ -33,8 +33,8 @@ public class Customer implements Serializable {
     @Column(name = "name", nullable = false, length = 25)
     private String name;
 
-    @Column(name = "lastname", nullable = false, length = 30)
-    private String lastname;
+    @Column(name = "last_name", nullable = false, length = 30)
+    private String lastName;
 
     @Lob
     @Type(type = "text")

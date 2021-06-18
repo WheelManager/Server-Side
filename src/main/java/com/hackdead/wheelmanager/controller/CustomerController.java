@@ -101,19 +101,18 @@ public class CustomerController {
             @ApiResponse(code = 201, message = "Customer found"),
             @ApiResponse(code = 404, message = "Customer not found")
     })
-    public ResponseEntity<List<Customer>> findByDni(@PathVariable("dni") String dni) {
+    public ResponseEntity<Customer> findByDni(@PathVariable("dni") String dni) {
         try {
-            List<Customer> customers = customerService.findByName(dni);
-            if (customers.size() > 0)
-                return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
-            else
-                return new ResponseEntity<List<Customer>>(HttpStatus.NOT_FOUND);
+            Optional<Customer> customer = customerService.findByDni(dni);
+            if (!customer.isPresent())
+                return new ResponseEntity<Customer>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Customer>(customer.get(), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<List<Customer>>(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<Customer>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Registration of Customers", notes = "Method to register Customers in the BD")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Customer found"),

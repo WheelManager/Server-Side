@@ -25,6 +25,7 @@ public class Offer implements Serializable {
     private String offerName;
 
     @Lob
+    @Type(type = "text")
     @Column(name = "description", nullable = false)
     private String description;
 

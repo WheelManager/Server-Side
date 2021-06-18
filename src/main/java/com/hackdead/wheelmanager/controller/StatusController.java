@@ -78,7 +78,7 @@ public class StatusController {
         }
     }
 
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Registration of Statuses", notes = "Method to register Statuses in the BD")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Status found"),

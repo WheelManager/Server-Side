@@ -90,7 +90,7 @@ public class SubscriptionController {
         }
     }
 
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Registration of Subscription", notes = "Method to register Subscription in the BD")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Subscription found"),

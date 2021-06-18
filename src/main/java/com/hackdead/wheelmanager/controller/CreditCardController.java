@@ -78,7 +78,7 @@ public class CreditCardController {
         }
     }
 
-    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Update Credit Card data", notes = "Method to update Credit Card")
     @ApiResponses({

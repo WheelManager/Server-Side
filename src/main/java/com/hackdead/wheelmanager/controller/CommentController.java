@@ -90,7 +90,7 @@ public class CommentController {
         }
     }
 
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Registration of Comment", notes = "Method to register Comment in the BD")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Comment found"),

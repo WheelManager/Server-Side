@@ -27,7 +27,7 @@ public class RentalActivity implements Serializable {
     @Column(name = "comission", nullable = false)
     private double commission;
 
-    @Column(name = "insurancePrice", nullable = false)
+    @Column(name = "insurance_price", nullable = false)
     private double insurancePrice;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

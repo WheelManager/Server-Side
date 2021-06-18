@@ -92,7 +92,7 @@ public class ReservationController {
         }
     }
 
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Registration of Reservations", notes = "Method to register Reservations in the BD")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Reservation found"),

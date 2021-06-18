@@ -49,7 +49,7 @@ public class CustomerServiceImpl implements ICustomerService {
     }
 
     @Override
-    public Customer findByDni(String dni) throws Exception {
+    public Optional<Customer> findByDni(String dni) throws Exception {
         return customerRepository.findByDni(dni);
     }
 }

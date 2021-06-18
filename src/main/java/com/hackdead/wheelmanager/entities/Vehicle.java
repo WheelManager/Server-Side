@@ -30,8 +30,8 @@ public class Vehicle implements Serializable {
     @Column(name = "image_url", nullable = false)
     private String imageUrl;
 
-    @Column(name = "calification", nullable = false)
-    private Integer calification;
+    @Column(name = "score", nullable = false)
+    private Integer score;
 
     @Lob
     @Type(type = "text")
