@@ -42,7 +42,7 @@ public class RentalActivityController {
         }
     }
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Search Rental Activity by Id", notes = "Method to find a Rental Activity by Id")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Rental Activity found"),
@@ -59,7 +59,7 @@ public class RentalActivityController {
         }
     }
 
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Registration of Rental Activity", notes = "Method to register Rental Activity in the BD")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Rental Activity found"),
