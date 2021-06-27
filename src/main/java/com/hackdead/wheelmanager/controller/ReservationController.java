@@ -27,7 +27,7 @@ public class ReservationController {
     private IReservationService reservationService;
 
     public static Date ParseDate(String date) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         Date result = null;
         try {
             result = format.parse(date);

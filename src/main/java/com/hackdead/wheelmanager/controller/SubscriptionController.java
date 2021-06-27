@@ -27,7 +27,7 @@ public class SubscriptionController {
     private ISubscriptionService subscriptionService;
 
     public static Date ParseDate(String date) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date result = null;
         try {
             result = format.parse(date);
