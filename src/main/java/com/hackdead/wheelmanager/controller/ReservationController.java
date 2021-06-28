@@ -18,7 +18,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 @RequestMapping("/api/reservations")
 @Api(tags = "Reservations", value = "Service Web RESTFul of reservations")

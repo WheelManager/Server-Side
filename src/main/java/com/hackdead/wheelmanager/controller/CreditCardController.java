@@ -1,7 +1,6 @@
 package com.hackdead.wheelmanager.controller;
 
 import com.hackdead.wheelmanager.entities.CreditCard;
-import com.hackdead.wheelmanager.entities.Offer;
 import com.hackdead.wheelmanager.service.ICreditCardService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,7 +16,8 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 @RestController
 @RequestMapping("/api/creditCards")
 @Api(tags = "Credit Card", value = "Service Web RESTful of Credit Card")
@@ -78,7 +78,7 @@ public class CreditCardController {
         }
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE,
+    @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Update Credit Card data", notes = "Method to update Credit Card")
     @ApiResponses({
@@ -99,7 +99,7 @@ public class CreditCardController {
         }
     }
 
-    @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Credit card added", notes = "Method to add a Credit Card in the DB")
     @ApiResponses({
             @ApiResponse(code = 201, message = "Credit Card found"),
