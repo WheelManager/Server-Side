@@ -23,12 +23,15 @@ public class Subscription implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "subscription_price", nullable = false)
+    private double subscriptionPrice;
+
     @Lob
     @Type(type = "text")
     @Column(name = "description", nullable = false)
     private String description;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     @Column(name = "start_date", nullable = false)
     private Date startDate;
 
