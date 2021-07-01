@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 public interface IReservationRepository extends JpaRepository<Reservation, Long> {
-    @Query("Select r from Reservation r where r.startDate =:startDate and r.endDate=:endDate")
+    @Query("Select r from Reservation r where r.startDate between :startDate and :endDate")
     List<Reservation> find(@Param("startDate") Date startDate,
                            @Param("endDate") Date endDate);
 }
